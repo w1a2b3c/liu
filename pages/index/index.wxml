@@ -1,0 +1,60 @@
+<view class="after-navber">
+  <ad unit-id="adunit-3ce72f5fc97170c8" ad-type="video" ad-theme="white" bindload="adLoad" binderror="adError" bindclose="adClose"></ad>
+
+    <view class="container" style="width: 750rpx; height: 535rpx; display: flex; box-sizing: border-box">
+        <form bindsubmit="receive">
+            <picker bindchange="classChange" class="seachInput" range="{{classArray}}" rangeKey="name">
+                <view class="picker">
+                     选择: {{classArray[classIndex].name}}
+                </view>
+            </picker>
+            <view class="itemButtom">
+                <button class="seachButtom" formType="submit">{{data.examine==1?'购 买 卡 密':'领 取 卡 密'}}</button>
+            </view>
+        </form>
+        <text class="info" wx:if="{{classArray[classIndex].introduce!=null&&classArray[classIndex].introduce!=''}}" style="width: 577rpx; height: 293rpx; display: block; box-sizing: border-box; position: relative; left: 50rpx; top: -37rpx">
+ {{classArray[classIndex].introduce}}
+    </text>
+   <!-- <view class="tool-info">
+            <text class="title">{{data.contact}}</text>
+            <image class="adImage" src="{{data.ruleImg}}"></image>
+        </view>-->
+    </view>
+</view>
+
+<view class="Pop-ups {{shareShow?'show':''}} ">
+    <view class="dialog">
+        <view class="bar">
+            <view class="content">分享提示</view>
+        </view>
+        <view style="padding:50rpx;">
+              {{data.shareTip!=''?data.shareTip:'还需分享一次好友或群即可领取卡密了'}}
+            </view>
+        <view class="bar">
+            <button bindtap="popupShow" class="action" style="color:#39b54a;">我不</button>
+            <button bindtap="ok" class="action" openType="share" style="color:#0081ff;">分享</button>
+        </view>
+    </view>
+
+  
+</view>
+<view class="containers" style="position: relative; left: 3rpx; top: -46rpx">
+    <navigator appId="{{data.appid1}}" class="items" extraData="" hoverClass="none" openType="navigate" path="{{data.path1}}" target="miniProgram" version="release">
+      <image src="{{data.glimg1}}"></image>
+        <view class="t">
+            <text>{{data.gl1}}</text>
+        </view>
+    </navigator>
+    <navigator appId="{{data.appid2}}" class="items" extraData="" hoverClass="none" openType="navigate" path="{{data.path2}}" target="miniProgram" version="release">
+        <image src="{{data.glimg2}}"></image>
+        <view class="t">
+            <text>{{data.gl2}}</text>
+        </view>
+    </navigator>
+    <navigator appId="{{data.appid3}}" class="items" extraData="" hoverClass="none" openType="navigate" path="{{data.path3}}" target="miniProgram" version="release">
+        <image src="{{data.glimg3}}"></image>
+        <view class="t">
+            <text>{{data.gl3}}</text>
+        </view>
+    </navigator>
+</view>
